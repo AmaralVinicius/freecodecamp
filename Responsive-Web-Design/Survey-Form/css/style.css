@@ -1,0 +1,149 @@
+* {
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+}
+
+body{
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header, footer {
+  text-align: center;
+  background-color: rgb(69, 166, 184);
+}
+
+h1 {
+  font-size: 1.9rem;
+  font-weight: 800;
+}
+
+#main-container {
+  font-size: 1.1rem;
+  border: solid 2px;
+  border-radius: 5px;
+  min-width: 400px;
+  max-width: 700px;
+  margin: 0.5rem auto;
+  padding: 0.4rem 1.2rem;
+}
+
+#description {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin: 0.6rem 0;
+}
+
+#survey-form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+#personal-infos-container {
+  display: flex;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+#personal-infos-container input {
+  width: 100%;
+  margin: 0.3rem;
+}
+
+.required {
+  color: red;
+}
+
+#career {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem 0rem;
+  margin-bottom: 1rem;
+}
+
+#career select {
+  width: 100%;
+}
+
+#side-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 0.9rem;
+}
+
+#seniority {
+  margin-top: 0.5rem;
+}
+
+#languages {
+  margin-bottom: 1rem;
+}
+
+#languages-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 0.5rem;
+}
+
+#languages-container input{
+  margin-right: -0.05rem;
+}
+
+#favorite-container {
+  margin-bottom: 0.5rem;
+}
+
+#favorite-container select{
+  margin-left: 0.5rem;
+  width: 40%;
+}
+
+#textarea-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#textarea-container textarea{
+  width: 70%;
+}
+
+input, select, textarea {
+  padding: .5em;
+  border-radius: 3px;
+  outline: none;
+}
+
+textarea {
+  font-size: 0.9em;
+  resize: none;
+}
+
+#submit {
+  background-color: rgb(69, 166, 184);
+  border: 4px solid rgb(69, 166, 184);
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  margin-top: 0.8rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+#submit:hover {
+  border: 4px solid rgb(36, 65, 70);
+}
+
+a {
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Formulário de pesquisa sobre as Linguagens de Programação">
+  <meta name="author" content="Vi">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Survey Form</title>
+</head>
+<body>
+  <header>
+    <h1 id="title">LINGUAGENS DE PROGRAMAÇÃO</h1>
+  </header>
+
+  <div id="main-container">
+    <p id="description">Formulário de pesquisa sobre as Linguagens de Programação</p>
+
+    <form id="survey-form">
+      <div id="personal-infos-container">
+        <div><label id="name-label" for="name"><span class="required">*</span><span>Nome:</span></label>
+        <input type="text" id="name" name="name" placeholder="Digite o seu nome" required></div>
+        <div><label id="email-label" for="email"><span class="required">*</span><span>Email:</span></label>
+        <input type="email" id="email" name="email" placeholder="Digite o seu email" required></div>
+        <div><label id="number-label" for="number"><span class="required">*</span><span>Idade:</span></label>
+        <input type="number" id="number" name="age" min="1" max="120" placeholder="Diga a sua idade" required></div>
+      </div>
+
+      <fieldset id="career">
+        <legend>Sobre sua carreira:</legend>
+        <div id="seniority-container">
+          <label for="seniority">Senioridade:</label>
+          <select id="seniority" name="seniority">
+            <option value="" selected disabled>Selecione</option>
+            <option value="Junior">Junior</option>
+            <option value="Pleno">Pleno</option>
+            <option value="Senior">Sênior</option>
+          </select>
+        </div>
+
+        <div id="side-container">
+          <label for="front-end">
+            <input type="radio" id="front-end" name="side" value="front-end">Front-end
+          </label>
+          <label for="back-end">
+            <input type="radio" id="back-end" name="side" value="back-end">Back-end
+          </label>
+          <label for="fullstack">
+            <input type="radio" id="fullstack" name="side" value="fullstack">Fullstack
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset id="languages">
+        <legend>Quais linguagens você utiliza?</legend>
+        <div id="languages-container">
+          <label for="javascript">
+            <input type="checkbox" id="javascript" name="languages" value="Javascript">
+            Javascript
+          </label>
+          <label for="pascal">
+            <input type="checkbox" id="pascal" name="languages" value="Pascal">
+            Pascal
+          </label>
+          <label for="ruby">
+            <input type="checkbox" id="ruby" name="languages" value="Ruby">
+            Ruby
+          </label>
+          <label for="basic">
+            <input type="checkbox" id="basic" name="languages" value="Basic">
+            Basic
+          </label><label for="r">
+            <input type="checkbox" id="r" name="languages" value="R">
+            R
+          </label>
+          <label for="python">
+            <input type="checkbox" id="python" name="languages" value="Python">
+            Python
+          </label>
+          <label for="php">
+            <input type="checkbox" id="php" name="languages" value="PHP">
+            PHP
+          </label>
+          <label for="ccpp">
+            <input type="checkbox" id="ccpp" name="languages" value="C/C++">
+            C/C++
+          </label><label for="lua">
+            <input type="checkbox" id="lua" name="languages" value="Lua">
+            Lua
+          </label>
+          <label for="java">
+            <input type="checkbox" id="java" name="languages" value="Java">
+            Java
+          </label>
+          <label for="csharp">
+            <input type="checkbox" id="csharp" name="languages" value="C#">
+            C#
+          </label>
+          <label for="swift">
+            <input type="checkbox" id="swift" name="languages" value="Swift">
+            Swift
+          </label><label for="typescript">
+            <input type="checkbox" id="typescript" name="languages" value="TypeScript">
+            TypeScript
+          </label>
+        </div>
+      </fieldset>
+
+      <div id="favorite-container">
+        <label for="dropdown">Qual sua linguagem favorita?</label>
+        <select name="favorite" id="dropdown">
+          <option value="" selected disabled>Selecione</option>
+          <option value="Javascript">Javascript</option>
+          <option value="Pascal">Pascal</option>
+          <option value="Ruby">Ruby</option>
+          <option value="Basic">Basic</option>
+          <option value="R">R</option>
+          <option value="Python">Python</option>
+          <option value="PHP">PHP</option>
+          <option value="C/C++">C/C++</option>
+          <option value="Lua">Lua</option>
+          <option value="Java">Java</option>
+          <option value="C#">C#</option>
+          <option value="Swift">Swift</option>
+          <option value="TypeScript">TypeScript</option>
+        </select>
+      </div>
+
+      <div id="textarea-container">
+        <label for="message">Conte-nos mais sobre sua 
+          experiência como DEV:</label>
+          <textarea name="message" id="message" cols="30" rows="4" placeholder="Desafios, preferências, como começou, conselhos..."></textarea>
+      </div>
+
+      <button id="submit" type="submit" name="button">ENVIAR</button>
+    </form>
+  </div>
+
+  <footer>
+    <div id="webmaster">
+      <p><a href="https://github.com/AmaralVinicius/">&copy 2023 Vinícius Amaral</a></p>
+    </div>
+  </footer>
+</body>
+</html>
