@@ -11,7 +11,6 @@ main {
   background-color: #dfdfdf;
   margin: 1rem;
   border-radius: 5px;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
