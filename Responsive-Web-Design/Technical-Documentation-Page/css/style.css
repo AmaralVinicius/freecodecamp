@@ -9,6 +9,7 @@ body {
   font-size: 0.9rem;
   display: flex;
   color: #d0d0d5;
+  background-color: #1b1b32;
 }
 
 #navbar {
@@ -17,15 +18,33 @@ body {
   height: 100vh;
   border: solid 2px #d0d0d5;
   min-width: 280px;
+  overflow: auto;
+}
+
+#navbar::-webkit-scrollbar {
+  width: 12px;
+}
+
+#navbar::-webkit-scrollbar-track {
+  background: #2a2a40;
+}
+
+#navbar::-webkit-scrollbar-thumb {
+  background: #1b1b32;
+  border-radius: 20px;
+  border: 3px solid #2a2a40;
 }
 
 #nav-header {
+  position: sticky;
+  top: 0;
   display: flex;
   justify-content: center;
   gap: 1rem;
   background-color: #2a2a40;
-  border-right: none;
-  border-bottom: none;
+  border-bottom: solid 2px #d0d0d5;
+  border-right: solid 2px #d0d0d5;
+  margin-bottom: -2px;
 }
 
 #react-icon {
@@ -43,10 +62,10 @@ body {
 #navbar ul {
   padding: 0;
   margin: 0;
-  height: 100%;
   list-style: none;
   background-color: #1b1b32;
   color: #dfdfe2;
+  border-right: solid 2px #d0d0d5;
 }
 
 #navbar li {
@@ -118,12 +137,10 @@ a {
 
   #navbar {
     position: static;
-    height: 50vh;
-    overflow: auto;
+    height: 70vh;
   }
 
   #nav-header {
-    padding: 1rem 0;
+    padding: 0.75rem 0;
   }
-
 }
