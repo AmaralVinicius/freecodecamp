@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>React Documentation</title>
+  <meta name="description" content="Uma simples documentação da biblioteca front-end React">
+  <meta name="author" content="Vinícius Amaral">
+</head>
+<body>
+  <nav id="navbar">
+    <header id="nav-header">
+      <img src="./assets/react_icon.svg" alt="Ícone do React" id="react-icon">
+      <h1>Documentação<br>React</h1>
+    </header>
+    <ul>
+      <li><a class="nav-link" href="#introduction">Introdução</a></li>
+      <li><a class="nav-link" href="#creating_and_nesting_components">Criando e aninhando componentes</a></li>
+      <li><a class="nav-link" href="#writing_markup_with_jsx">Escrevendo marcação com JSX</a></li>
+      <li><a class="nav-link" href="#adding_styles">Adicionando estilos</a></li>
+      <li><a class="nav-link" href="#displaying_data">Exibindo dados</a></li>
+    </ul>
+  </nav>
+  <main id="main-doc">
+    <section class="main-section" id="introduction">
+      <header><h2>Introdução</h2></header>
+      <article>
+        <p>Bem-vindo à documentação do React! Esta página fornecerá uma introdução aos 80% dos conceitos do React que você usará diariamente.</p>
+        <h3>O que é React?</h3>
+        <p>React JS é uma biblioteca JavaScript para a criação de interfaces de usuário — ou UI (user interface). Criado em 2011 pelo time do Facebook, o React surgiu com o objetivo de otimizar a atualização e a sincronização de atividades simultâneas no feed de notícias da rede social, entre eles chat, status, listagem de contatos e outros.</p>
+        <p>A princípio, todas essas atividades, chamadas de estados, tinham uma descrição muito complexa. Com o React, esta descrição torna-se mais simples, bem como também é simplificada a conexão entre HTML, CSS e JavaScript e todos os componentes de uma página.</p>
+        <ul>
+          <header><h4>Você vai aprender:</h4></header>
+          <li>Como criar e aninhar componentes</li>
+          <li>Como adicionar marcações e estilos</li>
+          <li>Como exibir dados</li>
+          <li>Como renderizar condições e listas</li>
+          <li>Como responder a eventos e atualizar a tela</li>
+        </ul>
+      </article>
+    </section>
+    <section class="main-section" id="creating_and_nesting_components">
+      <header><h2>Criando e aninhando componentes</h2></header>
+      <article>
+        <p>Os aplicativos React são feitos de componentes. Um componente é uma parte da interface do usuário (interface do usuário) que possui sua própria lógica e aparência. Um componente pode ser tão pequeno quanto um botão ou tão grande quanto uma página inteira.</p>
+        <p>Componentes React são funções JavaScript que retornam marcação:</p>
+        <code>
+          function MyButton() {<br>
+            return (<br>
+            &ltbutton&gtI'm a button&lt/button&gt<br>
+            );<br>
+          }<br>
+        </code>
+      </article>
+    </section>
+    <section class="main-section" id="writing_markup_with_jsx">
+      <header><h2>Escrevendo marcação com JSX</h2></header>
+      <article>
+        <p>A sintaxe de marcação que você viu acima é chamada JSX. É opcional, mas a maioria dos projetos React usa JSX para sua conveniência. Todas as ferramentas que recomendamos para desenvolvimento local suportam JSX imediatamente.</p>
+        <p>JSX é mais rígido que HTML. Você tem que fechar tags como &ltbr/&gt. Seu componente também não pode retornar várias tags JSX. Você precisa envolvê-los em um pai compartilhado, como um &ltdiv&gt...&lt/div&gtou um &lt&gt...&lt/&gt wrapper vazio:</p>
+        <code>
+          function AboutPage() {<br>
+            return (<br>
+              &lt&gt<br>
+                &lth1&gtAbout&lt/h1&gt<br>
+                &ltp&gtHello there.&ltbr /&gtHow do you do?&lt/p&gt<br>
+              &lt&gt<br>
+            );<br>
+          }<br>
+        </code>
+        <p>Se você tiver muito HTML para portar para JSX, poderá usar um <a href="https://transform.tools/html-to-jsx" target="_blank">conversor online</a>.</p>
+      </article>
+    </section>
+    <section class="main-section" id="adding_styles">
+      <header><h2>Adicionando estilos</h2></header>
+      <article>
+        <p>No React, você especifica uma classe CSS com className. Funciona da mesma forma que o class atributo HTML:</p>
+        <code>
+          &ltimg className="avatar" /&gt<br>
+        </code>
+        <p>Então você escreve as regras CSS para ele em um arquivo CSS separado:</p>
+        <code>
+          /* In your CSS */<br>
+          .avatar {<br>
+          border-radius: 50%;<br>
+          }<br>
+        </code>
+        <p>O React não prescreve como você adiciona arquivos CSS. No caso mais simples, você adicionará uma &ltlink&gt tag ao seu HTML. Se você usa uma ferramenta de construção ou um framework, consulte sua documentação para saber como adicionar um arquivo CSS ao seu projeto</p>
+      </article>
+    </sction>
+    <section class="main-section" id="displaying_data">
+      <header><h2>Exibindo dados</h2></header>
+      <article>
+        <p>JSX permite que você coloque marcações em JavaScript. As chaves permitem que você “escape de volta” para o JavaScript para que possa incorporar alguma variável de seu código e exibi-la ao usuário. Por exemplo, isso exibirá user.name:</p>
+        <code>
+          return (<br>
+          &lth1&gt<br>
+          {user.name}<br>
+          &lt/h1&gt<br>
+          );<br>
+        </code>
+        <p>Você também pode “escapar para o JavaScript” para os atributos JSX, mas precisa usar chaves em vez de aspas. Por exemplo, className="avatar" passa a "avatar" string como a classe CSS, mas src={user.imageUrl} lê o user.imageUrl valor da variável JavaScript e passa esse valor como o src atributo:</p>
+        <code>
+          return (<br>
+          &ltimg<br>
+          className="avatar"<br>
+          src={user.imageUrl}<br>
+          /&gt<br>
+          );<br>
+        </code>
+        <p>Você também pode colocar expressões mais complexas dentro das chaves JSX, por exemplo, concatenação de strings:</p>
+        <code>
+          const user = {<br>
+            name: 'Hedy Lamarr',<br>
+            imageUrl: 'https://i.imgur.com/yXOvdOSs.jpg',<br>
+            imageSize: 90,<br>
+          };<br>
+          <br>
+          export default function Profile() {<br>
+            return (<br>
+              &lt&gt<br>
+                &lth1&gt{user.name}&lt/h1&gt<br>
+                &ltimg<br>
+                  className="avatar"<br>
+                  src={user.imageUrl}<br>
+                  alt={'Photo of ' + user.name}<br>
+                  style={{<br>
+                    width: user.imageSize,<br>
+                    height: user.imageSize<br>
+                  }}<br>
+                /&gt<br>
+              &lt/&gt<br>
+            );<br>
+          }<br>   
+        </code>
+        <p>No exemplo acima, style={{}} não é uma sintaxe especial, mas um {} objeto regular dentro das chaves JSX style={ }. Você pode usar o style atributo quando seus estilos dependem de variáveis JavaScript.</p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
