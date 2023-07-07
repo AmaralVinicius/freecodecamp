@@ -7,17 +7,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
   <link rel="stylesheet" href="css/style.css">
   <title>React Documentation</title>
   <meta name="description" content="Uma simples documentação da biblioteca front-end React">
   <meta name="author" content="Vinícius Amaral">
 </head>
 <body>
-  <nav id="navbar">
+  <div id="menu">
+    <button id="menu-button"><i class='fa-solid fa-xmark'></i></button>
+    <a href="https://react.dev/learn" target="_blank"><img src="./assets/react_icon.svg" alt="Ícone do React"></a>
+  </div>
+  <nav id="nav-bar">
     <header id="nav-header">
-      <img src="./assets/react_icon.svg" alt="Ícone do React" id="react-icon">
-      <h1>Documentação<br>React</h1>
+      <h1>Documentação<br>React<i class="fa-brands fa-react"></i></h1>
     </header>
     <ul>
       <li><a class="nav-link" href="#introduction">Introdução</a></li>
@@ -143,5 +146,7 @@
       </article>
     </section>
   </main>
+
+  <script src="./js/script.js"></script>
 </body>
 </html>
