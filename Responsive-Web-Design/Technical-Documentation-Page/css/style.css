@@ -52,7 +52,8 @@ body {
 }
 
 #nav-bar {
-  min-width: 250px;
+  min-width: 260px;
+  max-width: 260px;
   margin-left: -2px;
   transition: linear 0.1s;
 }
@@ -131,6 +132,12 @@ body {
 #main-doc {
   background-color: #1b1b32;
   width: 100%;
+  transition: linear 0.1s;
+  z-index: -1;
+}
+
+.effect {
+  filter: none;
 }
 
 article {
@@ -179,7 +186,6 @@ a:hover, #menu-button > i:hover {
   opacity: 1;
 }
 
-
 @media (max-width: 730px) {
   body {
     flex-direction: column;
@@ -198,8 +204,11 @@ a:hover, #menu-button > i:hover {
   }
 
   #nav-bar {
-    position: static;
-    height: 40vh;
+    position: fixed;
+    height: calc(100vh - 3rem);
+    min-width: 230px;
+    max-width: 230px;
+    top: 3rem;
     margin: 0;
     border-top: none;
   }
@@ -207,6 +216,10 @@ a:hover, #menu-button > i:hover {
   #nav-header h1{
     font-size: 1.1rem;
     margin: 0.75rem 0 0.75rem 0;
+  }
+
+  .effect {
+    filter: blur(1px);
   }
 
   #introduction h2{
