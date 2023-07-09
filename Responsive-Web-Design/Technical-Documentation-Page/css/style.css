@@ -130,18 +130,19 @@ body {
 }
 
 #main-doc {
+  padding-bottom: 1rem;
   background-color: #1b1b32;
   width: 100%;
   transition: linear 0.1s;
   z-index: -1;
 }
 
-.effect {
-  filter: none;
+article {
+  padding: 0.3rem 1rem 0 1.75rem;
 }
 
-article {
-  padding: 0 1rem 0 1.75rem;
+article p, article ul, article code {
+  margin-bottom: 0.5rem;
 }
 
 code {
@@ -206,8 +207,8 @@ a:hover, #menu-button > i:hover {
   #nav-bar {
     position: fixed;
     height: calc(100vh - 3rem);
-    min-width: 230px;
-    max-width: 230px;
+    min-width: 70vw;
+    max-width: 70vw;
     top: 3rem;
     margin: 0;
     border-top: none;
@@ -218,15 +219,16 @@ a:hover, #menu-button > i:hover {
     margin: 0.75rem 0 0.75rem 0;
   }
 
-  .effect {
-    filter: blur(1px);
-  }
-
   #introduction h2{
     margin-top: -2px;
   }
 
+  section {
+    padding-top: 3rem;
+    margin-top: -3rem;
+  }
+
   article {
-    padding: 0 1.1rem 0 1.1rem;
+    padding: 0.4rem 1.1rem 0 1.1rem;
   }
 }

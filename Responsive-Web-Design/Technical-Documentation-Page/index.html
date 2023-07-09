@@ -15,10 +15,10 @@
 </head>
 <body>
   <div id="menu">
-    <button id="menu-button"><i class='fa-solid fa-xmark'></i></button>
+    <button id="menu-button"><i class='fa-solid fa-bars'></i></button>
     <a href="https://react.dev/learn" target="_blank"><img src="./assets/react_icon.svg" alt="Ícone do React"></a>
   </div>
-  <nav id="nav-bar">
+  <nav id="nav-bar" class="hidden">
     <header id="nav-header">
       <h1>Documentação<br>React<i class="fa-brands fa-react"></i></h1>
     </header>
@@ -30,7 +30,7 @@
       <li><a class="nav-link" href="#displaying_data">Exibindo dados</a></li>
     </ul>
   </nav>
-  <main id="main-doc" class="effect">
+  <main id="main-doc">
     <section class="main-section" id="introduction">
       <header><h2>Introdução</h2></header>
       <article>
@@ -96,7 +96,7 @@
         </code>
         <p>O React não prescreve como você adiciona arquivos CSS. No caso mais simples, você adicionará uma &ltlink&gt tag ao seu HTML. Se você usa uma ferramenta de construção ou um framework, consulte sua documentação para saber como adicionar um arquivo CSS ao seu projeto</p>
       </article>
-    </sction>
+    </section>
     <section class="main-section" id="displaying_data">
       <header><h2>Exibindo dados</h2></header>
       <article>
