@@ -77,7 +77,7 @@
           &lt&gt
         );
       }
-        </pre></code>
+        </code></pre>
         <p>Se você tiver muito HTML para portar para JSX, poderá usar um <a href="https://transform.tools/html-to-jsx" target="_blank">conversor online</a>.</p>
       </article>
     </section>
@@ -87,14 +87,14 @@
         <p>No React, você especifica uma classe CSS com className. Funciona da mesma forma que o class atributo HTML:</p>
         <pre><code class="javascript">
       &ltimg className="avatar" /&gt
-        </pre></code>
+        </code></pre>
         <p>Então você escreve as regras CSS para ele em um arquivo CSS separado:</p>
-        <pre><code class="javascript">
+        <pre><code class="css">
       /* In your CSS */
       .avatar {
         border-radius: 50%;
       }
-        </pre></code>
+        </code></pre>
         <p>O React não prescreve como você adiciona arquivos CSS. No caso mais simples, você adicionará uma &ltlink&gt tag ao seu HTML. Se você usa uma ferramenta de construção ou um framework, consulte sua documentação para saber como adicionar um arquivo CSS ao seu projeto</p>
       </article>
     </section>
@@ -108,7 +108,7 @@
           {user.name}
         &lt/h1&gt
       );
-        </pre></code>
+        </code></pre>
         <p>Você também pode “escapar para o JavaScript” para os atributos JSX, mas precisa usar chaves em vez de aspas. Por exemplo, className="avatar" passa a "avatar" string como a classe CSS, mas src={user.imageUrl} lê o user.imageUrl valor da variável JavaScript e passa esse valor como o src atributo:</p>
         <pre><code class="javascript">
       return (
@@ -117,7 +117,7 @@
         src={user.imageUrl}
         /&gt
       );
-        </pre></code>
+        </code></pre>
         <p>Você também pode colocar expressões mais complexas dentro das chaves JSX, por exemplo, concatenação de strings:</p>
         <pre><code class="javascript">
       const user = {
@@ -142,10 +142,15 @@
           &lt/&gt
         );
       }
-        </pre></code>
+        </code></pre>
         <p>No exemplo acima, style={{}} não é uma sintaxe especial, mas um {} objeto regular dentro das chaves JSX style={ }. Você pode usar o style atributo quando seus estilos dependem de variáveis JavaScript.</p>
       </article>
     </section>
+    <footer>
+      <div id="webmaster">
+        <a href="https://github.com/AmaralVinicius/" target="_blank">&copy2023 Vinícius Amaral</a>
+      </div>
+    </footer>
   </main>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
   <script src="./js/script.js"></script>

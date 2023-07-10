@@ -3,6 +3,7 @@ class Menu {
     this.menuButton = document.querySelector(menuButton);
     this.navBar = document.querySelector(navBar);
     this.navList = document.querySelector(navList);
+    this.mobileMediaQuery = window.matchMedia("(max-width: 730px)");
     this.isMenuOpen;
   }
 
@@ -24,9 +25,8 @@ class Menu {
     }, 100);
   }
 
-  mediaQueryAction () {
-    const mobileMediaQuery = window.matchMedia("(max-width: 730px)")
-    if (mobileMediaQuery.matches) {
+  mediaQueryAction (mediaQuery) {
+    if (mediaQuery.matches) {
       this.closeMenu();
     } else {
       this.openMenu();
@@ -34,7 +34,7 @@ class Menu {
   }
 
   init() {
-    this.mediaQueryAction();
+    this.mediaQueryAction(this.mobileMediaQuery);
 
     this.menuButton.addEventListener("click", () => {
       this.isMenuOpen = !this.isMenuOpen;
@@ -47,11 +47,11 @@ class Menu {
     });
 
     this.navList.addEventListener("click", () => {
-      this.mediaQueryAction();
+      this.mediaQueryAction(this.mobileMediaQuery);
     });
 
     window.addEventListener("resize", () => {
-      this.mediaQueryAction();
+      this.mediaQueryAction(this.mobileMediaQuery);
     });
 
     return this;

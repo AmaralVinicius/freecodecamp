@@ -26,7 +26,7 @@ body {
   gap: 0.5rem;
   padding: 0.5rem;
   width: 3rem;
-  z-index: 1;
+  z-index: 2;
 }
 
 #menu img {
@@ -56,6 +56,7 @@ body {
   max-width: 260px;
   margin-left: -2px;
   transition: linear 0.1s;
+  z-index: 1;
 }
 
 .hidden {
@@ -127,14 +128,13 @@ body {
   display: block;
   padding: 1rem 1rem;
   cursor: pointer;
+  text-decoration: none;
 }
 
 #main-doc {
-  padding-bottom: 1rem;
   background-color: #1b1b32;
   width: 100%;
   transition: linear 0.1s;
-  z-index: -1;
 }
 
 article {
@@ -175,7 +175,6 @@ h2 {
 
 a {
   color: #dfdfe2;
-  text-decoration: none;
 }
 
 a:hover, #menu-button > i:hover {
@@ -184,6 +183,23 @@ a:hover, #menu-button > i:hover {
 
 #nav-bar a:hover{
   opacity: 1;
+}
+
+footer {
+  height: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-top: solid 2px #d0d0d5;
+  background-color: #2a2a40;
+  margin-top: 1.1rem;
+}
+
+footer a {
+  text-decoration: none;
 }
 
 @media (max-width: 730px) {
