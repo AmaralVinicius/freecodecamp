@@ -1,48 +1,68 @@
-const menuButton = document.getElementById("menu-button");
-const navBar = document.getElementById("nav-bar");
-const navLinks = document.querySelectorAll(".nav-link");
+class Menu {
+  constructor(menuButton, navBar, navList) {
+    this.menuButton = document.querySelector(menuButton);
+    this.navBar = document.querySelector(navBar);
+    this.navList = document.querySelector(navList);
+    this.isMenuOpen;
+  }
 
-let isMenuOpen;
-
-const closeMenu = () => {
-  isMenuOpen = false
-  menuButton.innerHTML = "<i class='fa-solid fa-bars'></i>";
-  navBar.classList.add("hidden");
-  setTimeout(() => {
-    navBar.style.display = "none";
-  }, 100);
-};
-
-const openMenu = () => {
-  isMenuOpen = true
-  menuButton.innerHTML = "<i class='fa-solid fa-xmark'></i></i>";
-    navBar.style.display = "flex";
+  closeMenu() {
+    this.isMenuOpen = false
+    this.menuButton.innerHTML = "<i class='fa-solid fa-bars'></i>";
+    this.navBar.classList.add("hidden");
     setTimeout(() => {
-      navBar.classList.remove("hidden")
+      this.navBar.style.display = "none";
     }, 100);
-};
+  }
 
-const mobileMediaQuery = window.matchMedia("(max-width: 730px)")
-if (mobileMediaQuery.matches) {
-  closeMenu();
-} else {
-  openMenu();
-};
+  openMenu () {
+    this.isMenuOpen = true
+    this.menuButton.innerHTML = "<i class='fa-solid fa-xmark'></i></i>";
+    this.navBar.style.display = "flex";
+    setTimeout(() => {
+      this.navBar.classList.remove("hidden")
+    }, 100);
+  }
 
-navLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    if (isMenuOpen && mobileMediaQuery.matches) {
-      closeMenu();
-    };
-  });
-});
+  mediaQueryAction () {
+    const mobileMediaQuery = window.matchMedia("(max-width: 730px)")
+    if (mobileMediaQuery.matches) {
+      this.closeMenu();
+    } else {
+      this.openMenu();
+    }
+  }
 
-menuButton.addEventListener("click", () => {
-  isMenuOpen = !isMenuOpen;
+  init() {
+    this.mediaQueryAction();
 
-  if (isMenuOpen === false) {
-    closeMenu();
-  } else {
-    openMenu();
-  };
-});
+    this.menuButton.addEventListener("click", () => {
+      this.isMenuOpen = !this.isMenuOpen;
+    
+      if (this.isMenuOpen === false) {
+        this.closeMenu();
+      } else {
+        this.openMenu();
+      };
+    });
+
+    this.navList.addEventListener("click", () => {
+      this.mediaQueryAction();
+    });
+
+    window.addEventListener("resize", () => {
+      this.mediaQueryAction();
+    });
+
+    return this;
+  }
+}
+
+const menu = new Menu(
+  "#menu-button",
+  "#nav-bar",
+  "#nav-list"
+);
+menu.init();
+
+hljs.highlightAll();
