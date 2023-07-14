@@ -29,6 +29,13 @@
       <li><a class="nav-link" href="#writing_markup_with_jsx">Escrevendo marcação com JSX</a></li>
       <li><a class="nav-link" href="#adding_styles">Adicionando estilos</a></li>
       <li><a class="nav-link" href="#displaying_data">Exibindo dados</a></li>
+      <li><a class="nav-link" href="#conditional_rendering">Renderização condicional
+      </a></li>
+      <li><a class="nav-link" href="#rendering_lists">Renderizando listas</a></li>
+      <li><a class="nav-link" href="#responding_to_events">Respondendo a eventos</a></li>
+      <li><a class="nav-link" href="#updating_the_screen">Atualizando a tela</a></li>
+      <li><a class="nav-link" href="#using_hooks">Utilizando Hooks</a></li>
+      <li><a class="nav-link" href="#sharing_data_between_components">Compartilhamento de dados entre componentes</a></li>
     </ul>
   </nav>
   <main id="main-doc">
@@ -46,6 +53,7 @@
           <li>Como exibir dados</li>
           <li>Como renderizar condições e listas</li>
           <li>Como responder a eventos e atualizar a tela</li>
+          <li>Como compartilhar dados entre componentes</li>
         </ul>
       </article>
     </section>
@@ -54,13 +62,26 @@
       <article>
         <p>Os aplicativos React são feitos de componentes. Um componente é uma parte da interface do usuário (interface do usuário) que possui sua própria lógica e aparência. Um componente pode ser tão pequeno quanto um botão ou tão grande quanto uma página inteira.</p>
         <p>Componentes React são funções JavaScript que retornam marcação:</p>
-        <pre><code class="javascript">
-      function MyButton() {
-        return (
-          &ltbutton&gtI'm a button&lt/button&gt
-        );
-      }
-        </code></pre>
+    <pre><code class="javascript">
+    function MyButton() {
+      return (
+        &ltbutton&gtEu sou um botão&lt/button&gt
+      );
+    }
+    </code></pre>
+        <p>Agora que você declarou MyButton, pode aninhá-lo em outro componente:</p>
+    <pre><code class="javascript">
+    export default function MyApp() {
+      return (
+        &ltdiv&gt
+          &lth1&gtBem vindo(a) a minha aplicação&lt/h1&gt
+          &ltMyButton /&gt
+        &lt/div&gt
+      );
+    }
+    </pre></code>
+        <p>Observe que &ltMyButton /&gt começa com letra maiúscula. É assim que você sabe que é um componente React. Os nomes dos componentes do React devem sempre começar com uma letra maiúscula, enquanto as tags HTML devem ser minúsculas.</p>
+        <p>As export default palavras-chave especificam o componente principal no arquivo. Se você não estiver familiarizado com alguma parte da sintaxe do JavaScript, <a href="https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export" target="_blank">MDN</a> e <a href="https://javascript.info/import-export" target="_blank">javascript.info</a> têm ótimas referências.</p>
       </article>
     </section>
     <section class="main-section" id="writing_markup_with_jsx">
@@ -68,16 +89,16 @@
       <article>
         <p>A sintaxe de marcação que você viu acima é chamada JSX. É opcional, mas a maioria dos projetos React usa JSX para sua conveniência. Todas as ferramentas que recomendamos para desenvolvimento local suportam JSX imediatamente.</p>
         <p>JSX é mais rígido que HTML. Você tem que fechar tags como &ltbr/&gt. Seu componente também não pode retornar várias tags JSX. Você precisa envolvê-los em um pai compartilhado, como um &ltdiv&gt...&lt/div&gtou um &lt&gt...&lt/&gt wrapper vazio:</p>
-        <pre><code class="javascript">
-      function AboutPage() {
-        return (
-          &lt&gt
-            &lth1&gtAbout&lt/h1&gt
-            &ltp&gtHello there.&ltbr /&gtHow do you do?&lt/p&gt
-          &lt&gt
-        );
-      }
-        </code></pre>
+    <pre><code class="javascript">
+    function AboutPage() {
+      return (
+        &lt&gt
+          &lth1&gtSobre&lt/h1&gt
+          &ltp&gtOlá.&ltbr /&gtComo vai você?&lt/p&gt
+        &lt&gt
+      );
+    }
+    </code></pre>
         <p>Se você tiver muito HTML para portar para JSX, poderá usar um <a href="https://transform.tools/html-to-jsx" target="_blank">conversor online</a>.</p>
       </article>
     </section>
@@ -85,16 +106,16 @@
       <header><h2>Adicionando estilos</h2></header>
       <article>
         <p>No React, você especifica uma classe CSS com className. Funciona da mesma forma que o class atributo HTML:</p>
-        <pre><code class="javascript">
-      &ltimg className="avatar" /&gt
-        </code></pre>
+    <pre><code class="javascript">
+    &ltimg className="avatar" /&gt
+    </code></pre>
         <p>Então você escreve as regras CSS para ele em um arquivo CSS separado:</p>
-        <pre><code class="css">
-      /* In your CSS */
-      .avatar {
-        border-radius: 50%;
-      }
-        </code></pre>
+    <pre><code class="css">
+    /* In your CSS */
+    .avatar {
+      border-radius: 50%;
+    }
+    </code></pre>
         <p>O React não prescreve como você adiciona arquivos CSS. No caso mais simples, você adicionará uma &ltlink&gt tag ao seu HTML. Se você usa uma ferramenta de construção ou um framework, consulte sua documentação para saber como adicionar um arquivo CSS ao seu projeto</p>
       </article>
     </section>
@@ -102,48 +123,267 @@
       <header><h2>Exibindo dados</h2></header>
       <article>
         <p>JSX permite que você coloque marcações em JavaScript. As chaves permitem que você “escape de volta” para o JavaScript para que possa incorporar alguma variável de seu código e exibi-la ao usuário. Por exemplo, isso exibirá user.name:</p>
-        <pre><code class="javascript">
-      return (
-        &lth1&gt
-          {user.name}
-        &lt/h1&gt
-      );
-        </code></pre>
+    <pre><code class="javascript">
+    return (
+      &lth1&gt
+        {user.name}
+      &lt/h1&gt
+    );
+    </code></pre>
         <p>Você também pode “escapar para o JavaScript” para os atributos JSX, mas precisa usar chaves em vez de aspas. Por exemplo, className="avatar" passa a "avatar" string como a classe CSS, mas src={user.imageUrl} lê o user.imageUrl valor da variável JavaScript e passa esse valor como o src atributo:</p>
-        <pre><code class="javascript">
-      return (
-        &ltimg
-        className="avatar"
-        src={user.imageUrl}
-        /&gt
-      );
-        </code></pre>
-        <p>Você também pode colocar expressões mais complexas dentro das chaves JSX, por exemplo, concatenação de strings:</p>
-        <pre><code class="javascript">
-      const user = {
-        name: 'Hedy Lamarr',
-        imageUrl: 'https://i.imgur.com/yXOvdOSs.jpg',
-        imageSize: 90,
-      };
+    <pre><code class="javascript">
+    return (
+      &ltimg
+      className="avatar"
+      src={user.imageUrl}
+      /&gt
+    );
+    </code></pre>
+        <p>Você também pode colocar expressões mais complexas dentro das chaves JSX, por exemplo, <a href="https://javascript.info/operators#string-concatenation-with-binary" target="_blank">concatenação de strings</a>:</p>
+    <pre><code class="javascript">
+    const user = {
+      name: 'Hedy Lamarr',
+      imageUrl: 'https://i.imgur.com/yXOvdOSs.jpg',
+      imageSize: 90,
+    };
 
-      export default function Profile() {
-        return (
-          &lt&gt
-            &lth1&gt{user.name}&lt/h1&gt
-            &ltimg
-              className="avatar"
-              src={user.imageUrl}
-              alt={'Photo of ' + user.name}
-              style={{
-                width: user.imageSize,
-                height: user.imageSize
-              }}
-            /&gt
-          &lt/&gt
-        );
-      }
-        </code></pre>
+    export default function Profile() {
+      return (
+        &lt&gt
+          &lth1&gt{user.name}&lt/h1&gt
+          &ltimg
+            className="avatar"
+            src={user.imageUrl}
+            alt={'Photo of ' + user.name}
+            style={{
+              width: user.imageSize,
+              height: user.imageSize
+            }}
+          /&gt
+        &lt/&gt
+      );
+    }
+    </code></pre>
         <p>No exemplo acima, style={{}} não é uma sintaxe especial, mas um {} objeto regular dentro das chaves JSX style={ }. Você pode usar o style atributo quando seus estilos dependem de variáveis JavaScript.</p>
+      </article>
+    </section>
+    <section class="main-section" id="conditional_rendering">
+      <header><h2>Renderização condicional</h2></header>
+      <article>
+        <p>No React, não há sintaxe especial para escrever condições. Em vez disso, você usará as mesmas técnicas usadas ao escrever código JavaScript regular. Por exemplo, você pode usar uma if instrução para incluir JSX condicionalmente:</p>
+    <pre><code class="javascript">
+    let content;
+
+    if (isLoggedIn) {
+      content = &ltAdminPanel /&gt;
+    } else {
+      content = &ltLoginForm /&gt;
+    }
+    return (
+      &ltdiv&gt
+        {content}
+      &lt/div&gt
+    );
+    </code></pre>
+        <p>Se você preferir um código mais compacto, pode usar o operador <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator" target="_blank">condicional ?</a>. Ao contrário do if, ele funciona dentro do JSX:</p>
+    <pre><code class="javascript">
+    return (
+      &ltdiv&gt
+        {isLoggedIn ? (
+          &ltAdminPanel /&gt
+        ) : (
+          &ltLoginForm /&gt
+        )}
+      &lt/div&gt
+    );  
+    </code></pre>
+        <p>Quando você não precisa da else ramificação, também pode usar uma sintaxe <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#short-circuit_evaluation" target="_blank">lógica &&</a> mais curta:</p>
+    <pre><code class="javascript">
+    return (
+      &ltdiv&gt
+        {isLoggedIn && &ltAdminPanel /&gt}
+      &lt/div&gt
+    );
+    </code></pre>
+        <p>Todas essas abordagens também funcionam para especificar atributos condicionalmente. Se você não estiver familiarizado com parte dessa sintaxe JavaScript, pode começar sempre usando if ...else.</p>
+      </article>
+    </section>
+    <section class="main-section" id="rendering_lists">
+      <header><h2>Renderizando listas</h2></header>
+      <article>
+        <p>Você contará com recursos de JavaScript como for loop e a função de matriz map() para renderizar listas de componentes.</p>
+        <p>Por exemplo, digamos que você tenha uma matriz de produtos:</p>
+    <pre><code class="javascript">
+    const products = [
+      { title: 'Cabbage', id: 1 },
+      { title: 'Garlic', id: 2 },
+      { title: 'Apple', id: 3 },
+    ];
+    </code></pre>
+      <p>Dentro do seu componente, use a função map() para transformar um array de produtos em um array de itens &ltli&gt:</p>
+    <pre><code class="javascript">
+    const listItems = products.map(product =&gt
+      &ltli key={product.id}&gt
+        {product.title}
+      &lt/li&gt
+    );
+    
+    return (
+      &ltul&gt{listItems}&lt/ul>
+    );
+    </code></pre>
+        <p>Observe como &ltli&gt tem um atributo key. Para cada item em uma lista, você deve passar uma string ou um número que identifique exclusivamente aquele item entre seus irmãos. Normalmente, uma chave deve vir de seus dados, como um ID de banco de dados. O React usa suas chaves para saber o que aconteceu se você inserir, excluir ou reordenar os itens posteriormente.</p>
+      </article>
+    </section>
+    <section class="main-section" id="responding_to_events">
+      <header><h2>Respondendo a eventos</h2></header>
+      <article>
+        <p>Você pode responder a eventos declarando funções de manipulador de eventos dentro de seus componentes:</p>
+    <pre><code class="javascript">
+    function MyButton() {
+      function handleClick() {
+        alert('Você clicou em mim!');
+      }
+    
+      return (
+        &ltbutton onClick={handleClick}&gt
+          Me clique!
+        &lt/button&gt
+      );
+    }
+    </code></pre>
+        <p>Observe como onClick={handleClick} não tem parênteses no final! Não chame a função do manipulador de eventos: você só precisa transmiti-la. O React chamará seu manipulador de eventos quando o usuário clicar no botão.</p>
+      </article>
+    </section>
+    <section class="main-section" id="updating_the_screen">
+      <header><h2>Atualizando a tela</h2></header>
+      <article>
+        <p>Frequentemente, você desejará que seu componente “lembre-se” de algumas informações e as exiba. Por exemplo, talvez você queira contar o número de vezes que um botão é clicado. Para fazer isso, adicione estado ao seu componente.</p>
+        <p>Primeiro, importe <a href="https://react.dev/reference/react/useState" target="_blank">useState</a> do React:</p>
+    <pre><code class="javascript">
+    import { useState } from 'react';
+    </code></pre>
+        <p>Agora você pode declarar uma variável de estado dentro do seu componente:</p>
+    <pre><code class="javascript">
+    function MyButton() {
+      const [count, setCount] = useState(0);
+      // ...
+    </code></pre>
+        <p>Você obterá duas coisas useState: o estado atual ( count) e a função que permite atualizá-lo (setCount ). Você pode dar a eles qualquer nome, mas a convenção é escrever [something, setSomething].</p>
+        <p>A primeira vez que o botão for exibido, count será 0 porque você passou 0 para useState(). Quando você quiser mudar de estado, chame setCount() e passe o novo valor para ele.</p>
+        <p>Clicar neste botão incrementará o contador:</p>
+    <pre><code class="javascript">
+    function MyButton() {
+      const [count, setCount] = useState(0);
+    
+      function handleClick() {
+        setCount(count + 1);
+      }
+    
+      return (
+        &ltbutton onClick={handleClick}&gt
+          Clicado {count} vezes
+        &lt/button&gt
+      );
+    }
+    </code></pre>
+        <p>O React chamará sua função de componente novamente. Desta vez, count será 1. Então será 2. E assim por diante.</p>
+        <p>Se você renderizar o mesmo componente várias vezes, cada um obterá seu próprio estado separadamente:</p>
+    <pre><code class="javascript">
+    import { useState } from 'react';
+
+    export default function MyApp() {
+      return (
+        &ltdiv&gt
+          &lth1&gtContadores que atualizam separadamente&lt/h1&gt
+          &ltMyButton /&gt
+          &ltMyButton /&gt
+        &lt/div&gt
+      );
+    }
+
+    function MyButton() {
+      const [count, setCount] = useState(0);
+
+      function handleClick() {
+        setCount(count + 1);
+      }
+
+      return (
+        &ltbutton onClick={handleClick}&gt
+          Clicado {count} vezes
+        &lt/button&gt
+      );
+    }
+    </code></pre>
+        <p>Observe como cada botão “lembra” seu próprio estado count e não afeta outros botões.</p>
+      </article>
+    </section>
+    <section class="main-section" id="using_hooks">
+      <header><h2>Utilizando Hooks</h2></header>
+      <article>
+        <p>As funções que começam com use são chamadas de Hooks. useState é um Hook integrado fornecido pelo React. Você pode encontrar outros Hooks integrados na <a href="https://react.dev/reference/react" target="_blank">referência da API</a>.Você também pode escrever seus próprios Hooks combinando os existentes.</p>
+        <p>Os Hooks são mais restritivos do que outras funções. Você só pode chamar Hooks no topo de seus componentes (ou outros Hooks). Se você quiser usar useState em uma condição ou loop, extraia um novo componente e coloque-o lá.</p>
+      </article>
+    </section>
+    <section class="main-section" id="sharing_data_between_components">
+      <header><h2>Compartilhamento de dados entre componentes</h2></header>
+      <article>
+        <p>No exemplo anterior, cada MyButton tinha seu próprio count, e quando cada botão era clicado, apenas o count do botão clicado mudava.</p>
+        <p>No entanto, muitas vezes você precisará de componentes para compartilhar dados e atualizar sempre juntos.</p>
+        <p>Para fazer com que ambos componentes MyButton exibam count da mesma forma e que eles sejam atualizados juntos, você precisa mover o estado dos botões individuais “para cima” para o componente mais próximo que contém todos eles.</p>
+        <p>Primeiro, mova o estado de MyButton para MyApp:</p>
+    <pre><code class="javascript">
+    export default function MyApp() {
+      const [count, setCount] = useState(0);
+    
+      function handleClick() {
+        setCount(count + 1);
+      }
+    
+      return (
+        &ltdiv&gt
+          &lth1&gtContadores que atualizam juntos&lt/h1&gt
+          &ltMyButton /&gt
+          &ltMyButton /&gt
+        &lt/div&gt
+      );
+    }
+    
+    function MyButton() {
+      // ... Estamos movendo o código daqui ...
+    }
+    </code></pre>
+        <p>Em seguida, passe o estado de MyApp para cada MyButton, juntamente com o manipulador de clique compartilhado. Você pode passar informações para MyButton usando as chaves JSX, assim como você fez anteriormente com tags internas como &ltimg&gt:</p>
+    <pre><code class="javascript">
+    export default function MyApp() {
+      const [count, setCount] = useState(0);
+    
+      function handleClick() {
+        setCount(count + 1);
+      }
+    
+      return (
+        &ltdiv&gt
+          &lth1&gtContadores que atualizam juntos&lt/h1&gt
+          &ltMyButton count={count} onClick={handleClick} /&gt
+          &ltMyButton count={count} onClick={handleClick} /&gt
+        &lt/div&gt
+      );
+    }
+    </code></pre>
+        <p>A informação que você passa assim é chamada de adereços. Agora o componente MyApp contém o estado de count e o manipulador de eventos handleClick, e passa ambos como props para cada um dos botões.</p>
+        <p>Por fim, mude MyButtonpara ler os props que você passou de seu componente pai:</p>
+    <pre><code class="javascript">
+    function MyButton({ count, onClick }) {
+      return (
+        &ltbutton onClick={onClick}&gt
+          Clicado {count} vezes
+        &lt/button&gt
+      );
+    }
+    </code></pre>
+        <p>Quando você clica no botão, o manipulador onClick é acionado. A props de cada botão onClick foi definido para a função handleClick dentro de MyApp, então o código dentro dele é executado. Esse código chama setCount(count + 1), incrementando a variável de estado count. O novo valor count é passado como prop para cada botão, então todos eles mostram o novo valor. Isso é chamado de “estado de levantamento”. Ao mover o estado para cima, você o compartilhou entre os componentes.</p>
       </article>
     </section>
     <footer>
