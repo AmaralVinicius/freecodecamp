@@ -1,3 +1,14 @@
+:root {
+  --gray-00: #ffffff;
+  --gray-05: #f5f6f7;
+  --gray-10: #dfdfe2;
+  --gray-15: #d0d0d5;
+  --gray-90: #0a0a23;
+  --gray-85: #1b1b32;
+  --gray-80: #2a2a40;
+  --gray-75: #3b3b4f;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -8,8 +19,12 @@ body {
   font-family: 'Roboto Mono', monospace;
   font-size: 0.9rem;
   display: flex;
-  color: #d0d0d5;
-  background-color: #1b1b32;
+  color: var(--gray-00);
+  background-color: var(--gray-90);
+}
+
+a {
+  color: var(--gray-15);
 }
 
 #menu, #nav-bar {
@@ -18,15 +33,15 @@ body {
   position: sticky;
   top: 0;
   height: 100vh;
-  border: solid 2px #d0d0d5;
-  background-color: #1b1b32;
+  border: solid 1px var(--gray-10);
 }
 
 #menu {
   gap: 0.5rem;
   padding: 0.5rem;
-  width: 3rem;
+  max-width: 3rem;
   z-index: 2;
+  background-color: var(--gray-85);
 }
 
 #menu img {
@@ -48,7 +63,7 @@ body {
 #menu-button > i {
   font-size: 2rem;  
   margin-top: -1px;
-  color: #dfdfe2;
+  color: var(--gray-10);
 }
 
 #nav-bar {
@@ -57,6 +72,7 @@ body {
   margin-left: -2px;
   transition: linear 0.1s;
   z-index: 1;
+  background-color: var(--gray-80);
 }
 
 .hidden {
@@ -69,9 +85,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #2a2a40;
-  border-bottom: solid 2px #d0d0d5;
-  margin-bottom: -2px;
+  background-color: var(--gray-85);
+  border-bottom: solid 2px var(--gray-10);
+  border-left: solid 2px var(--gray-10);
+  margin-bottom: -1px;
 }
 
 #nav-header h1 {
@@ -91,9 +108,10 @@ body {
 #nav-list {
   padding: 0;
   margin: 0;
+  margin-top: -2px;
   list-style: none;
-  background-color: #1b1b32;
-  color: #dfdfe2;
+  background-color: var(--gray-80);
+  color: var(--gray-10);
   overflow: auto;
 }
 
@@ -104,14 +122,14 @@ code::-webkit-scrollbar {
 
 #nav-list::-webkit-scrollbar-track,
 code::-webkit-scrollbar-track {
-  background: #2a2a40;
+  background: var(--gray-85);
 }
 
 #nav-list::-webkit-scrollbar-thumb,
 code::-webkit-scrollbar-thumb {
-  background: #1b1b32;
-  border-radius: 20px;
-  border: 3px solid #2a2a40;
+  background: var(--gray-80);
+  border-radius: 10px;
+  border: 3px solid var(--gray-85);
 }
 
 .nav-link {
@@ -122,20 +140,27 @@ code::-webkit-scrollbar-thumb {
 }
 
 #nav-bar li {
-  border-top: solid 2px #d0d0d5;
-  border-right: solid 2px #d0d0d5;
+  border: solid 2px var(--gray-10);
+  border-bottom: none;
+  transition: linear 0.2s;
 }
 
 #nav-bar li:hover {
-  background-color: #2a2a40;
+  background-color: var(--gray-00);
+  color: var(--gray-90);
 }
 
 #nav-bar li:last-child {
-  border-bottom: solid 2px #d0d0d5;
+  border-bottom: solid 2px var(--gray-10);
+}
+
+#nav-bar li a {
+  color: inherit;
+  opacity: 100% !important;
 }
 
 #main-doc {
-  background-color: #1b1b32;
+  background-color: var(--gray-90);
   width: 100%;
   transition: linear 0.1s;
 }
@@ -154,14 +179,14 @@ code {
   font-family: Arial, sans-serif !important;
   padding: 0 !important;
   padding-right: 1rem !important;
-  background-color: #3b3b4f !important;
+  background-color: var(--gray-85) !important;
 }
 
 h2 {
   padding: 1rem;
   margin: 1.75rem 0 0 0;
-  background-color: #2a2a40;
-  border: solid 2px #d0d0d5;
+  background-color: var(--gray-85);
+  border: solid 1px var(--gray-10);
   border-left: none;
   border-right: none;
 }
@@ -171,14 +196,10 @@ h2 {
 }
 
 #introduction ul{
-  background-color: #3b3b4f;
-  color: #dfdfe2;
+  background-color: var(--gray-85);
+  color: var(--gray-15);
   border-radius: 5px;
   padding: 0.1rem 0 1.2rem 2.5rem;
-}
-
-a {
-  color: #dfdfe2;
 }
 
 a:hover, #menu-button > i:hover {
@@ -196,8 +217,8 @@ footer {
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  border-top: solid 2px #d0d0d5;
-  background-color: #2a2a40;
+  border-top: solid 1px var(--gray-10);
+  background-color: var(--gray-85);
   margin-top: 1.1rem;
 }
 
@@ -212,7 +233,7 @@ footer a {
   }
 
   #menu {
-    width: 100%;
+    max-width: 100%;
     height: 3rem;
     flex-direction: row;
   }
@@ -229,7 +250,10 @@ footer a {
     max-width: 70vw;
     top: 3rem;
     margin: 0;
-    border-top: none;
+  }
+
+  #nav-header {
+    border-right: solid 2px var(--gray-10);
   }
 
   #nav-header h1{
