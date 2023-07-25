@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Welcome to FreeCodeCamp</title>
+  <meta name="description" content="Uma página de divulgação da plataforma FreeCodeCamp">
+  <meta name="author" content="Vinícius Amaral">
+</head>
+<body>
+  <header id="header">
+    <div id="logo">
+      <img src="./assets/freecodecamp_logo.svg" alt="FreeCodeCamp Logo" id="header-img">
+    </div>
+    <nav id="nav-bar">
+      <ul>
+        <li><a href="#about" class="nav-link">Sobre</a></li>
+        <li><a href="#welcome" class="nav-link">Boas-vindas</a></li>
+        <li><a href="#testimonials" class="nav-link">Relatos</a></li>
+        <li><a href="#join" class="nav-link">Comece</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="sign-up">
+      <h2>Participe da <a href="https://www.freecodecamp.org/" target="_blank">FreeCodeCamp</a></h2>
+      <form action="https://www.freecodecamp.com/email-submit" methoded="post" id="form">
+        <input type="email" name="email" id="email" placeholder="Insira seu endereço de email">
+        <input type="submit" id="submit" value="enviar">
+      </form>
+    </section>
+    <section id="about">
+      <ul>
+        <li>
+          <h3>O que exatamente é a FreeCodeCamp?</h2>
+          <p>freeCodeCamp é uma comunidade de pessoas de todo o mundo que estão aprendendo a codificar juntas. Somos uma instituição de caridade pública.</p>
+        </li>
+        <li>
+          <h3>Como o freeCodeCamp me ajudará a aprender a programar?</h2>
+          <p>Você aprenderá a codificar criando dezenas de projetos, passo a passo, diretamente em seu navegador, editor de código ou aplicativo móvel.</p>
+          <p>Você também ganhará certificações verificadas gratuitas ao longo do caminho.</p>
+        </li>
+        <li>
+          <h3>O freeCodeCamp é realmente gratuito?</h3>
+          <p>Sim. Todos os aspectos do freeCodeCamp são 100% gratuitos. Os cursos, os projetos e até as certificações.</p>
+        </li>
+        <li>
+          <h3>O freeCodeCamp pode me ajudar a conseguir um emprego como programador?</h3>
+          <p>Sim. Todos os anos, milhares de pessoas que se juntam à comunidade freeCodeCamp conseguem seu primeiro emprego como desenvolvedor de software.</p>
+        </li>
+        <li>
+          <h3>Quais habilidades vou aprender?</h3>
+          <p>Você aprenderá as habilidades que a maioria dos desenvolvedores usa no trabalho: HTML, CSS, JavaScript, Python, Linux, Git e SQL e muito mais. Você também aprenderá como usar bibliotecas poderosas para desenvolvimento web, desenvolvimento de aplicativos móveis, ciência de dados e inteligência artificial.</p>
+        </li>
+      </ul>
+      <h4>Vamos codar!</h4>
+    </section>
+    <section id="welcome">
+      <h3>Boas-vindas!</h3>
+      <iframe id="video" src="https://www.youtube.com/embed/UThJjF1ecNg"
+      frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </section>
+    <section id="testimonials">
+      <h2>Aqui está o que nossos ex-alunos dizem sobre o FreeCodeCamp:</h2>
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <img src="./assets/shawn_wang.png" alt="Shawn Wang picture">
+        </div>
+        <div class="testimonial-body">
+          <div class="testimonial-meta">
+            <p><strong>Shawn Wang</strong> em Cingapura</p>
+            <p>Engenheiro de Software na <strong>Amazon</strong></p>
+          </div>
+          <div class="testimony">
+            <p>"É assustador mudar de carreira. Só ganhei confiança de que poderia codificar trabalhando nas centenas de horas de aulas gratuitas no freeCodeCamp. Em um ano, eu tinha um emprego de seis dígitos como engenheiro de software. O freeCodeCamp mudou minha vida."</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <img src="./assets/sarah_chima.png" alt="Sarah Chima picture">
+        </div>
+        <div class="testimonial-body">
+          <div class="testimonial-meta">
+            <p><strong>Sarah Chima</strong> na Nigéria</p>
+            <p>Engenheiro de Software na <strong>ChatDesk</strong></p>
+          </div>
+          <div class="testimony">
+            <p>"FreeCodeCamp foi a porta de entrada para minha carreira como desenvolvedor de software. O currículo bem estruturado levou meu conhecimento de codificação de um nível totalmente iniciante a um nível muito confiante. Era tudo que eu precisava para conseguir meu primeiro emprego de desenvolvedor em uma empresa incrível."</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <img src="./assets/emma_bostian.png" alt="Emma Bostian picture">
+        </div>
+        <div class="testimonial-body">
+          <div class="testimonial-meta">
+            <p><strong>Emma Bostian</strong> na Suécia</p>
+            <p>Engenheiro de Software na <strong>Spotify</strong></p>
+          </div>
+          <div class="testimony">
+            <p>"Sempre lutei para aprender JavaScript. Fiz muitos cursos, mas o curso do freeCodeCamp foi o que travou. Estudar JavaScript, bem como estruturas de dados e algoritmos no freeCodeCamp me deu as habilidades e a confiança de que precisava para conseguir o emprego dos meus sonhos como engenheiro de software no Spotify."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="join">
+      <div class="join-card">
+        <h3>Comece já!</h3>
+        <p>&#36;000</p>
+        <p><a href="https://www.freecodecamp.org/" target="_blank">FreeCodeCamp</a> é gratuito!</p>
+        <a href="#sign-up" id="join-button">Inscreva-se!</a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div id="webmaster">
+      <a href="https://github.com/AmaralVinicius/" target="_blank">&copy2023 Vinícius Amaral</a>
+    </div>
+  </footer>
+</body>
+</html>
