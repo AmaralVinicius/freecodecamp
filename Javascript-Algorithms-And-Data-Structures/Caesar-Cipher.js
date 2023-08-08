@@ -6,17 +6,10 @@ const caesarCipher = (str, shift, decode = false) => {
 
   for (let i = 0; i < str.length; i++) {
     let letter = str.charAt(i);
+    let index = alphabet.indexOf(letter)
 
-    if (/[A-Z]/.test(letter)) {
-      if ((alphabet.indexOf(letter) + shift) < 0) {
-        output += alphabet.charAt((alphabet.indexOf(letter) + shift + alphabet.length));
-      }
-      else if ((alphabet.indexOf(letter) + shift) > alphabet.length - 1) {
-        output += alphabet.charAt((alphabet.indexOf(letter) + shift - alphabet.length));
-      }
-      else {
-        output += alphabet.charAt(alphabet.indexOf(letter) + shift);
-      };
+    if (index !== -1) {
+      output += alphabet.charAt((index + shift + alphabet.length) % alphabet.length);
     }
     else {
       output += letter;
