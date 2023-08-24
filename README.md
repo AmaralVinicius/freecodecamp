@@ -13,3 +13,4 @@ Coleção dos projetos que construo enquanto faço todo currículo do www.freeco
    1. Palindrome Checker - [View Code](https://github.com/AmaralVinicius/freecodecamp/blob/main/Javascript-Algorithms-And-Data-Structures/Palindrome-Checker.js)
    2. Roman Numeral Converter - [View Code](https://github.com/AmaralVinicius/freecodecamp/blob/main/Javascript-Algorithms-And-Data-Structures/Roman-Numeral-Converter.js)
    3. Caesar Chiper - [View Code](https://github.com/AmaralVinicius/freecodecamp/blob/main/Javascript-Algorithms-And-Data-Structures/Caesar-Cipher.js)
+   4. Telephone Number Validator - [View Code](https://github.com/AmaralVinicius/freecodecamp/blob/main/Javascript-Algorithms-And-Data-Structures/Telephone-Number-Validator.js)
