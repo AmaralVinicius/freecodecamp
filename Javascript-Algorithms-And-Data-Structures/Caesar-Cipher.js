@@ -1,5 +1,5 @@
 const caesarCipher = (str, shift, decode = false) => {
-  let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   let output = '';
 
   shift = decode ? Math.abs(shift) * -1 : Math.abs(shift);
